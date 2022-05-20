@@ -1,8 +1,8 @@
 import { Component } from "react";
 import axios from "axios";
-import ProductCatalog from "./Components/ProductCatalog";
-import ShopNavbar from "./Components/ShopNavbar";
-import CategoryItems from "./Components/CategoryItems";
+import ProductCatalog from "./Components/Products";
+import ShopNavbar from "./Components/Navbar";
+import CategoryItems from "./Components/Category";
 import {
   Route,
   Routes,
