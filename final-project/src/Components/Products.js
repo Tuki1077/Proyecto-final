@@ -50,7 +50,7 @@ class ProductCatalog extends Component {
                                         {product.description}
                                     </Card.Text>
                                     <div className='text-center'>
-                                        <Button variant='dark' onClick={e => this.props.handleAddToCart(product)}>Add to cart</Button>
+                                        <Button variant='primary' onClick={e => this.props.handleAddToCart(product)}>Add to cart</Button>
                                     </div>
                                 </Card.Body>
                             </Card>

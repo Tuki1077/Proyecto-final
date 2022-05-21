@@ -1,8 +1,9 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Container, Button, Modal, ListGroup, Badge, CloseButton } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Container, Button, Modal, ListGroup, Badge, CloseButton, Alert } from 'react-bootstrap'
 
 
 function MyVerticallyCenteredModal(props) {
+    let alert = props.posted === 1 ? <Alert variant='success'>The order was set! Thank you for your purchase.</Alert> : <Button onClick={props.handlePostCart}>Proceed to checkout</Button>
     console.log(props.data);
     return (
         < Modal
@@ -13,7 +14,7 @@ function MyVerticallyCenteredModal(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Shopping Cart
+                    Your cart at the moment:
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -34,10 +35,10 @@ function MyVerticallyCenteredModal(props) {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
-                <h4 className='text-left p-2'>Cart total: ${props.total}.00</h4>
+                <h4 className='text-left p-2'>Total: ${props.total}.00</h4>
             </Modal.Body>
             <Modal.Footer>
-                <Button>Proceed to checkout</Button>
+             {alert}
             </Modal.Footer>
         </Modal >
     );
@@ -50,7 +51,7 @@ export default function ShopNavbar(props) {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="light">
                 <Container>
                     <Navbar.Brand href="/">Shopping App</Navbar.Brand>
                     <Nav className="me-auto">
@@ -61,7 +62,7 @@ export default function ShopNavbar(props) {
                             ))}
                         </NavDropdown>
                     </Nav>
-                    <Button variant="outline-light" onClick={() => setModalShow(true)}>Cart</Button>
+                    <Button variant="outline-primary" onClick={() => setModalShow(true)}>Cart</Button>
                 </Container>
             </Navbar>
             <MyVerticallyCenteredModal
@@ -70,6 +71,8 @@ export default function ShopNavbar(props) {
                 data={props.products}
                 total={props.total}
                 handleDelete={props.handleDelete}
+                handlePostCart={props.handlePostCart}
+                posted={props.posted}
             />
         </>
     );
