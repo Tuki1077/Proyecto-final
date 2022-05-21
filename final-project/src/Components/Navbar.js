@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown, Container, Button, Modal, ListGroup, Badge, C
 
 
 function MyVerticallyCenteredModal(props) {
-    let alert = props.posted === 1 ? <Alert variant='success'>The order was set! Thank you for your purchase.</Alert> : <Button onClick={props.handlePostCart}>Proceed to checkout</Button>
+    let alert = props.posted === 1 ? <Alert variant='success'>Thank you for your purchase.</Alert> : <Button onClick={props.handlePostCart}>Proceed to checkout</Button>
     console.log(props.data);
     return (
         < Modal
@@ -35,7 +35,7 @@ function MyVerticallyCenteredModal(props) {
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
-                <h4 className='text-left p-2'>Total: ${props.total}.00</h4>
+                <h4 className='text-left p-2'>Total: ${props.total}</h4>
             </Modal.Body>
             <Modal.Footer>
              {alert}
